@@ -20,9 +20,6 @@ App
 |            |------------AppNavigationStyle.js
 |------------Services  
 |            |------------Config.js
-|            |------------APIModules.js
-|            |------------MockModules.js
-|            |------------Repository.js
 |------------Theme
 |            |------------ApplicationStyle.js
 |------------Utilities
