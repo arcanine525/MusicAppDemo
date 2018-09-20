@@ -13,6 +13,7 @@ import Video from "react-native-video";
 import Control from "./Controls";
 import AlbumArt from "./AlbumArt";
 import data from "../../../data";
+import styles from "./PlayerStyles";
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -35,6 +36,14 @@ export default class App extends Component {
   parseTime(time) {
     return Math.floor(time / 60) + ": " + (time % 60);
   }
+
+  onPressPause() {
+    this.setState({ paused: true });
+  }
+  onPressPlay() {
+    this.setState({ paused: false });
+  }
+
   render() {
     const music = data[1];
     return (
@@ -42,6 +51,7 @@ export default class App extends Component {
         <Video
           source={music.audioUrl} // Can be a URL or a local file.
           audioOnly={true}
+          paused={!this.state.paused}
           onBuffer={this.onBuffer} // Callback when remote video is buffering
           onEnd={this.onEnd} // Callback when playback finishes
           onLoad={this.setDuration.bind(this)}
@@ -59,17 +69,16 @@ export default class App extends Component {
           <Text>{this.parseTime(this.state.totalLength)}</Text>
         </View>
 
-        <Control />
+        <Control
+          paused={this.state.paused}
+          onPressPause={() => {
+            this.onPressPause();
+          }}
+          onPressPlay={() => {
+            this.onPressPlay();
+          }}
+        />
       </View>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center"
-  },
-  timeContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between"
-  }
-});
