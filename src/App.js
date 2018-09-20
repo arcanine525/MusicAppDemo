@@ -8,21 +8,32 @@
 
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
-
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
-});
-
+import Video from "react-native-video";
+import Player from "./Components/Player/Player";
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      paused: true,
+      totalLength: 1,
+      currentPosition: 0,
+      selectedTrack: 0
+    };
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        {/* <Video
+          source={music} // Can be a URL or a local file.
+          audioOnly={true}
+          onBuffer={this.onBuffer} // Callback when remote video is buffering
+          onEnd={this.onEnd} // Callback when playback finishes
+          onError={this.videoError} // Callback when video cannot be loaded
+          onProgress={this.setTime.bind(this)}
+        /> */}
+        <Player />
+
+        <Text>{this.state.currentPosition}</Text>
       </View>
     );
   }
