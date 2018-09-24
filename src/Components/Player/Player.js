@@ -14,6 +14,7 @@ import Control from "./Controls";
 import AlbumArt from "./AlbumArt";
 import styles from "./PlayerStyles";
 import data from "../../../data";
+import styles from "./PlayerStyles";
 export default class App extends Component {
   constructor(props) {
     super(props);

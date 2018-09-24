@@ -46,7 +46,7 @@ const Control = ({
     </TouchableOpacity>
 
     <TouchableOpacity onPress={onLike}>
-      <Image source={Images.likeButton} style={styles.secondaryButton}/>
+      <Image source={Images.likeButton} style={styles.secondaryButton} />
     </TouchableOpacity>
   </View>
 );
