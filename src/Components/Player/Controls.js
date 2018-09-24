@@ -8,6 +8,7 @@ import {
   Dimensions
 } from "react-native";
 import Images from "../../Theme/Image";
+
 const Control = ({
   paused,
   shuffleOn,
@@ -30,27 +31,32 @@ const Control = ({
       <Image source={Images.prevButton} style={styles.secondaryButton} />
     </TouchableOpacity>
 
-    <TouchableOpacity onPress={onPressPlay}>
-      <Image source={Images.playButton} style={styles.playButton} />
-    </TouchableOpacity>
+    {paused ? (
+      <TouchableOpacity onPress={onPressPlay}>
+        <Image source={Images.pauseButton} style={styles.playButton} />
+      </TouchableOpacity>
+    ) : (
+      <TouchableOpacity onPress={onPressPause}>
+        <Image source={Images.playButton} style={styles.playButton} />
+      </TouchableOpacity>
+    )}
 
     <TouchableOpacity onPress={onForward}>
       <Image source={Images.nextButton} style={styles.secondaryButton} />
     </TouchableOpacity>
 
     <TouchableOpacity onPress={onLike}>
-      <Image source={Images.likeButton} style={styles.secondaryButton} />
+      <Image source={Images.likeButton} style={styles.secondaryButton}/>
     </TouchableOpacity>
   </View>
 );
 
-export default Control;
 const primaryBtn = 64;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   playButton: {
     height: primaryBtn,
@@ -61,3 +67,4 @@ const styles = StyleSheet.create({
     width: primaryBtn / 2
   }
 });
+export default Control;

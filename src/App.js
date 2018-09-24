@@ -8,7 +8,9 @@
 
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
-import PlaylistScreen from './Screen/PlayistScreen/PlaylistScreen';
+import PlaylistScreen from "./Screen/PlayistScreen/PlaylistScreen";
+import Player from "./Components/Player/Player";
+import MainStack from "./Navigation/AppNavigation";
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
@@ -28,9 +30,9 @@ export default class App extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <PlaylistScreen />
-      </View>
+      
+        <MainStack />
+  
     );
   }
 }
