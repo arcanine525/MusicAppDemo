@@ -14,11 +14,6 @@ import Control from "./Controls";
 import AlbumArt from "./AlbumArt";
 import styles from "./PlayerStyles";
 import data from "../../../data";
-<<<<<<< HEAD
-
-=======
-import styles from "./PlayerStyles";
->>>>>>> b93c2236956c596dfacca7b9560071a1deec590a
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +44,6 @@ export default class App extends Component {
     this.setState({ paused: false });
   }
 
-<<<<<<< HEAD
   onForward() {
     this.setState({selectedTrack: this.state.selectedTrack + 1});
   }
@@ -58,8 +52,6 @@ export default class App extends Component {
     this.setState({selectedTrack: this.state.selectedTrack - 1});
   }
 
-=======
->>>>>>> b93c2236956c596dfacca7b9560071a1deec590a
   render() {
 
     // const {getParam} = this.props.navigation;
@@ -99,15 +91,12 @@ export default class App extends Component {
           onPressPlay={() => {
             this.onPressPlay();
           }}
-<<<<<<< HEAD
           onForward={()=>{
             this.onForward();
           }}
           onBack={()=>{
             this.onBack();
           }}
-=======
->>>>>>> b93c2236956c596dfacca7b9560071a1deec590a
         />
       </View>
     );
