@@ -12,7 +12,7 @@ const MainStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: "PlayerScreen",
+    initialRouteName: "PlayListScreen",
     headerMode: 'none'
   }
 );

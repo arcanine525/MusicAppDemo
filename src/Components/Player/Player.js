@@ -57,7 +57,7 @@ export default class App extends Component {
 
     // const {getParam} = this.props.navigation;
 
-    const music = data[this.state.selectedTrack];
+    const music = data[this.props.track];
     return (
       <View style={styles.container}>
         <Video
