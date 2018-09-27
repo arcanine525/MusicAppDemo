@@ -1,5 +1,6 @@
 const TRACKS = [
   {
+    id:"1",
     title: "Tận cùng nỗi nhớ",
     artist: "Will",
     albumArtUrl:
@@ -7,6 +8,7 @@ const TRACKS = [
     audioUrl: require("./assets/Musics/Tan-Cung-Noi-Nho-Will.mp3")
   },
   {
+    id:"2",
     title: "Ai là ai của Ai",
     artist: "Trịnh Thăng Bình",
     albumArtUrl:
@@ -14,6 +16,7 @@ const TRACKS = [
     audioUrl: require("./assets/Musics/Ai-La-Ai-Cua-Ai-Trinh-Thang-Binh.mp3")
   },
   {
+    id:"3",
     title: "Đừng Quên Tên Anh",
     artist: "Drake",
     albumArtUrl:
@@ -21,6 +24,7 @@ const TRACKS = [
     audioUrl: require("./assets/Musics/Dung-Quen-Ten-Anh-Hoa-Vinh.mp3")
   },
   {
+    id:"4",
     title: "Hotline Bling",
     artist: "Drake",
     albumArtUrl:

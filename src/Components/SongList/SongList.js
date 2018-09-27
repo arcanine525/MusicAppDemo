@@ -12,7 +12,7 @@ import {styles} from './SongListStyle';
 class SongList extends Component {
     
     _renderItem = ({item, index}) => (
-        <TouchableOpacity onPress={()=> this.props.onGoPlayer(index)}>
+        <TouchableOpacity onPress={()=> this.props.onGoPlayer(item)}>
         <View style={styles.item}>
             <Image source={{uri: item.albumArtUrl}} style={styles.image} />
             <View style={styles.info}>
@@ -29,7 +29,8 @@ class SongList extends Component {
                 <FlatList 
                     data={this.props.data}
                     renderItem={this._renderItem}
-                    keyExtractor={item => item.title}                />
+                    keyExtractor={item => item.id}
+                />
             </View>
         );
     } 

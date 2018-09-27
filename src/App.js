@@ -11,6 +11,7 @@ import { Platform, StyleSheet, Text, View } from "react-native";
 import PlaylistScreen from "./Screen/PlayistScreen/PlaylistScreen";
 import Player from "./Components/Player/Player";
 import MainStack from "./Navigation/AppNavigation";
+import SearchBar from "./Components/SearchBar/SearchBar";
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
@@ -32,7 +33,7 @@ export default class App extends Component {
     return (
       
         <MainStack />
-  
+        
     );
   }
 }

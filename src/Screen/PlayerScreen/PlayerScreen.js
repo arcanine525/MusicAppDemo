@@ -4,9 +4,24 @@ import { View, StyleSheet } from "react-native";
 import Player from "../../Components/Player/Player";
 import Header from "../../Components/Header/Header";
 class PlayerScreen extends Component {
+  
+  constructor(props){
+    super(props);
+    this.state={
+      playQueue: [],
+    }
+  }
+  
+  componentDidMount(){
+    this.setState({
+      playQueue: this.state.playQueue.concat(this.props.navigation.state.params.list)
+    })
+    console.log('HEY')
+  }
+
   render() {
 
-    const { track } = this.props.navigation.state.params;
+    const {track} = this.props.navigation.state.params;
 
     const {goBack} = this.props.navigation;
 
@@ -16,9 +31,10 @@ class PlayerScreen extends Component {
           message="Player"
           LeftIcon="chevron-left" 
           onLeftBtn={()=>goBack()}
-          RightIcon="dots-three-horizontal"  
+          RightIcon="list"
+          onRightBtn={}
           />
-        <Player track={track}/>
+        <Player track={track} list={this.state.playQueue}/>
       </View>
     );
   }

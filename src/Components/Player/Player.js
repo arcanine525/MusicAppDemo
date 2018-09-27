@@ -20,9 +20,10 @@ export default class App extends Component {
     super(props);
     this.state = {
       paused: true,
+      liked: false,
       totalLength: 1,
       currentPosition: 0,
-      selectedTrack: props.track
+      selectedTrack: props.track,
     };
   }
 
@@ -41,23 +42,27 @@ export default class App extends Component {
   onPressPause() {
     this.setState({ paused: true });
   }
+
   onPressPlay() {
     this.setState({ paused: false });
   }
 
-  onForward() {
-    this.setState({selectedTrack: this.state.selectedTrack + 1});
+  onBack() {
+    this.setState({selectedTrack: this.state.trackNumber - 1});
   }
 
-  onBack() {
-    this.setState({selectedTrack: this.state.selectedTrack - 1});
+  onForward() {
+    this.setState({selectedTrack: this.state.trackNumber + 1});
+  }
+
+  onLike() {
+    this.setState({liked: !this.state.liked}); 
   }
 
   render() {
-
-    // const {getParam} = this.props.navigation;
-
-    const music = data[this.props.track];
+    
+    const music = this.state.selectedTrack;
+    
     return (
       <View style={styles.container}>
         <Video
@@ -71,10 +76,7 @@ export default class App extends Component {
           onProgress={this.setTime.bind(this)}
         />
         <AlbumArt url={music.albumArtUrl} />
-        {/* <View style={styles.info}>
-          <Text>{music.title}</Text>
-          <Text>{music.artist}</Text>
-        </View> */}
+
         <Slider
           value={this.state.currentPosition / this.state.totalLength}
           disable={true}
@@ -88,6 +90,7 @@ export default class App extends Component {
           paused={this.state.paused}
           onPressPause={() => {
             this.onPressPause();
+            console.log(this.props.track)
           }}
           onPressPlay={() => {
             this.onPressPlay();
@@ -98,7 +101,10 @@ export default class App extends Component {
           onBack={()=>{
             this.onBack();
           }}
-        />
+          onLike={()=>{
+              this.onLike();
+          }}
+          />
       </View>
     );
   }
